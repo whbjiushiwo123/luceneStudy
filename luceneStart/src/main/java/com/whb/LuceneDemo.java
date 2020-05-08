@@ -18,29 +18,29 @@ import java.io.StringReader;
 import java.nio.file.Paths;
 
 public class LuceneDemo {
-    private static String str ="ÖĞ»ªÈËÃñ¹²ºÍ¹ú¼ò³ÆÖĞ¹ú,  ÊÇÒ»¸öÓĞ13ÒÚÈË¿ÚµÄ¹ú¼Ò";
+    private static String str ="ä¸­åäººæ°‘å…±å’Œå›½ç®€ç§°ä¸­å›½,  æ˜¯ä¸€ä¸ªæœ‰13äº¿äººå£çš„å›½å®¶";
 
     public static void main(String[] args) throws IOException {
         Analyzer analyzer = null;
 
-        analyzer = new StandardAnalyzer();// ±ê×¼·Ö´Ê
-        System.out.println("±ê×¼·Ö´Ê:" + analyzer.getClass());
+        analyzer = new StandardAnalyzer();// æ ‡å‡†åˆ†è¯
+        System.out.println("æ ‡å‡†åˆ†è¯:" + analyzer.getClass());
         printAnalyzer(analyzer);
 
-        analyzer = new WhitespaceAnalyzer(); // ¿Õ¸ñ·Ö´Ê
-        System.out.println("¿Õ¸ñ·Ö´Ê:" + analyzer.getClass());
+        analyzer = new WhitespaceAnalyzer(); // ç©ºæ ¼åˆ†è¯
+        System.out.println("ç©ºæ ¼åˆ†è¯:" + analyzer.getClass());
         printAnalyzer(analyzer);
 
-        analyzer = new SimpleAnalyzer(); // ¼òµ¥·Ö´Ê
-        System.out.println("¼òµ¥·Ö´Ê:" + analyzer.getClass());
+        analyzer = new SimpleAnalyzer(); // ç®€å•åˆ†è¯
+        System.out.println("ç®€å•åˆ†è¯:" + analyzer.getClass());
         printAnalyzer(analyzer);
 
-        analyzer = new CJKAnalyzer(); // ¶ş·Ö·¨·Ö´Ê
-        System.out.println("¶ş·Ö·¨·Ö´Ê:" + analyzer.getClass());
+        analyzer = new CJKAnalyzer(); // äºŒåˆ†æ³•åˆ†è¯
+        System.out.println("äºŒåˆ†æ³•åˆ†è¯:" + analyzer.getClass());
         printAnalyzer(analyzer);
 
-        analyzer = new KeywordAnalyzer(); // ¹Ø¼ü×Ö·Ö´Ê
-        System.out.println("¹Ø¼ü×Ö·Ö´Ê:" + analyzer.getClass());
+        analyzer = new KeywordAnalyzer(); // å…³é”®å­—åˆ†è¯
+        System.out.println("å…³é”®å­—åˆ†è¯:" + analyzer.getClass());
         printAnalyzer(analyzer);
 
         String file = new String("H:\\spring\\luceneStudy\\luceneStart\\dic\\stopword.dic");
@@ -48,27 +48,27 @@ public class LuceneDemo {
         analyzer = new StopAnalyzer(r);
         //analyzer = new StopAnalyzer();
 
-        // Í£ÓÃ´Ê·Ö´Ê
-        System.out.println("Í£ÓÃ´Ê·Ö´Ê:" + analyzer.getClass());
+        // åœç”¨è¯åˆ†è¯
+        System.out.println("åœç”¨è¯åˆ†è¯:" + analyzer.getClass());
         printAnalyzer(analyzer);
 
-        analyzer = new SmartChineseAnalyzer(); // ÖĞÎÄÖÇÄÜ·Ö´Ê
-        System.out.println("ÖĞÎÄÖÇÄÜ·Ö´Ê:" + analyzer.getClass());
+        analyzer = new SmartChineseAnalyzer(); // ä¸­æ–‡æ™ºèƒ½åˆ†è¯
+        System.out.println("ä¸­æ–‡æ™ºèƒ½åˆ†è¯:" + analyzer.getClass());
         printAnalyzer(analyzer);
 
-        analyzer = new IKAnalyzer6x(); // IK·Ö´Ê(Ï¸Á£¶ÈÇĞ·ÖËã·¨)
-        System.out.println("IK·Ö´Ê(Ï¸Á£¶ÈÇĞ·ÖËã·¨):" + analyzer.getClass());
+        analyzer = new IKAnalyzer6x(); // IKåˆ†è¯(ç»†ç²’åº¦åˆ‡åˆ†ç®—æ³•)
+        System.out.println("IKåˆ†è¯(ç»†ç²’åº¦åˆ‡åˆ†ç®—æ³•):" + analyzer.getClass());
         printAnalyzer(analyzer);
 
-        analyzer = new IKAnalyzer6x(true); // IK·Ö´Ê(ÖÇÄÜÇĞ·ÖËã·¨)
-        System.out.println("IK·Ö´Ê(ÖÇÄÜÇĞ·ÖËã·¨):" + analyzer.getClass());
+        analyzer = new IKAnalyzer6x(true); // IKåˆ†è¯(æ™ºèƒ½åˆ‡åˆ†ç®—æ³•)
+        System.out.println("IKåˆ†è¯(æ™ºèƒ½åˆ‡åˆ†ç®—æ³•):" + analyzer.getClass());
         printAnalyzer(analyzer);
     }
 
     public static void printAnalyzer(Analyzer analyzer) throws IOException {
         StringReader reader = new StringReader(str);
         TokenStream toStream = analyzer.tokenStream(str, reader);
-        toStream.reset();// Çå¿ÕÁ÷
+        toStream.reset();// æ¸…ç©ºæµ
         CharTermAttribute teAttribute = toStream.getAttribute(CharTermAttribute.class);
         while (toStream.incrementToken()) {
             System.out.print(teAttribute.toString() + "|");

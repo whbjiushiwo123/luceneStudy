@@ -13,7 +13,7 @@ import java.nio.channels.FileChannel;
 public class FileChannelWriteDemo {
     public static void main(String[] args){
 
-        String [] s = new String[]{"ÄãºÃ",",","ÔÙ¼û!"};
+        String [] s = new String[]{"ä½ å¥½",",","å†è§!"};
         File file = new File("D:"+File.separator+"test.txt");
         FileOutputStream fos = null;
         FileChannel channel = null;
@@ -26,9 +26,9 @@ public class FileChannelWriteDemo {
                 byteBuffer.put(s[i].getBytes());
             }
             /**
-             * 	flip()·½·¨£º
-             * 			½«Buffer´ÓĞ´Ä£Ê½ÇĞ»»µ½¶ÁÄ£Ê½
-             * 			µ÷ÓÃflip()·½·¨½«positionÉè»Ø0£¬²¢½«limitÉèÖÃ»ØÔ­ÏÈµÄpositionÎ»ÖÃ
+             * 	flip()æ–¹æ³•ï¼š
+             * 			å°†Bufferä»å†™æ¨¡å¼åˆ‡æ¢åˆ°è¯»æ¨¡å¼
+             * 			è°ƒç”¨flip()æ–¹æ³•å°†positionè®¾å›0ï¼Œå¹¶å°†limitè®¾ç½®å›åŸå…ˆçš„positionä½ç½®
              * 			buf.flip()
              */
             byteBuffer.flip();

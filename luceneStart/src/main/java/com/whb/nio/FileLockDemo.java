@@ -15,17 +15,17 @@ public class FileLockDemo {
             fos = new FileOutputStream(file);
             channel = fos.getChannel();
             /**
-             * ock阻塞的方法，锁定范围可以随着文件的增大而增大，lock()默认是独占锁，lock(0L,Long.MAX_VALUE,true)是共享锁
-             * tryLock非阻塞，未获得锁时，返回null，tryLock()默认是独占锁，tryLock(0L,Long.MAX_VALUE,true)为共享锁
+             * ock闃诲鐨勬柟娉曪紝閿佸畾鑼冨洿鍙互闅忕潃鏂囦欢鐨勫澶ц�屽澶э紝lock()榛樿鏄嫭鍗犻攣锛宭ock(0L,Long.MAX_VALUE,true)鏄叡浜攣
+             * tryLock闈為樆濉烇紝鏈幏寰楅攣鏃讹紝杩斿洖null锛宼ryLock()榛樿鏄嫭鍗犻攣锛宼ryLock(0L,Long.MAX_VALUE,true)涓哄叡浜攣
              */
             FileLock lock = channel.lock();
             //FileLock lock = channel.tryLock();
             if(lock != null){
-                System.out.println("获得文件锁！");
+                System.out.println("鑾峰緱鏂囦欢閿侊紒");
             }
             Thread.sleep(50000);
             lock.release();
-            System.out.println("文件锁释放！");
+            System.out.println("鏂囦欢閿侀噴鏀撅紒");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

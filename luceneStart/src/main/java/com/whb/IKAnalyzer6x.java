@@ -14,17 +14,17 @@ public class IKAnalyzer6x  extends Analyzer {
         this.useSmart = useSmart;
     }
 
-    // IK·Ö´ÊÆ÷Lucene Analyzer½Ó¿ÚÊµÏÖÀà;Ä¬ÈÏÏ¸Á£¶ÈÇĞ·ÖËã·¨
+    // IKåˆ†è¯å™¨Lucene Analyzeræ¥å£å®ç°ç±»;é»˜è®¤ç»†ç²’åº¦åˆ‡åˆ†ç®—æ³•
     public IKAnalyzer6x (){
         this(false);
     }
-    // IK·Ö´ÊÆ÷Lucene Analyzer½Ó¿ÚÊµÏÖÀà;µ±ÎªtrueÊ±£¬·Ö´ÊÆ÷½øĞĞÖÇÄÜÇĞ·Ö
+    // IKåˆ†è¯å™¨Lucene Analyzeræ¥å£å®ç°ç±»;å½“ä¸ºtrueæ—¶ï¼Œåˆ†è¯å™¨è¿›è¡Œæ™ºèƒ½åˆ‡åˆ†
     public IKAnalyzer6x (boolean useSmart){
         super();
         this.useSmart = useSmart;
     }
 
-    // ÖØĞ´×îĞÂ°æ±¾µÄcreateComponents;ÖØÔØAnalyzer½Ó¿Ú£¬¹¹Ôì·Ö´Ê×é¼ş
+    // é‡å†™æœ€æ–°ç‰ˆæœ¬çš„createComponents;é‡è½½Analyzeræ¥å£ï¼Œæ„é€ åˆ†è¯ç»„ä»¶
     protected TokenStreamComponents createComponents(String s) {
         Tokenizer _IKTokenizer = new IKTokenizer6x(this.useSmart());
         return new TokenStreamComponents(_IKTokenizer);

@@ -10,22 +10,22 @@ import org.wltea.analyzer.core.Lexeme;
 import java.io.IOException;
 
 public class IKTokenizer6x extends Tokenizer {
-    // IK·Ö´ÊÆ÷ÊµÏÖ
+    // IKåˆ†è¯å™¨å®ç°
     private IKSegmenter _IKImplement;
 
-    // ´ÊÔªÎÄ±¾ÊôĞÔ
+    // è¯å…ƒæ–‡æœ¬å±æ€§
     private final CharTermAttribute termAtt;
 
-    // ´ÊÔªÎ»ÒÆÊôĞÔ
+    // è¯å…ƒä½ç§»å±æ€§
     private final OffsetAttribute offsetAtt;
 
-    // ´ÊÔª·ÖÀàÊôĞÔ£¨¸ÃÊôĞÔ·ÖÀà²Î¿¼org.wltea.analyzer.core.LexemeÖĞµÄ·ÖÀà³£Á¿£©
+    // è¯å…ƒåˆ†ç±»å±æ€§ï¼ˆè¯¥å±æ€§åˆ†ç±»å‚è€ƒorg.wltea.analyzer.core.Lexemeä¸­çš„åˆ†ç±»å¸¸é‡ï¼‰
     private final TypeAttribute typeAtt;
 
-    // ¼ÇÂ¼×îºóÒ»¸ö´ÊÔªµÄ½áÊøÎ»ÖÃ
+    // è®°å½•æœ€åä¸€ä¸ªè¯å…ƒçš„ç»“æŸä½ç½®
     private int endPosition;
 
-    // Lucene 6.x TokenizerÊÊÅäÆ÷Àà¹¹Ôìº¯Êı;ÊµÏÖ×îĞÂµÄTokenizer½Ó¿Ú
+    // Lucene 6.x Tokenizeré€‚é…å™¨ç±»æ„é€ å‡½æ•°;å®ç°æœ€æ–°çš„Tokenizeræ¥å£
     public IKTokenizer6x(boolean userSmart){
         super();
         offsetAtt = addAttribute(OffsetAttribute.class);
@@ -35,25 +35,25 @@ public class IKTokenizer6x extends Tokenizer {
     }
     @Override
     public boolean incrementToken() throws IOException {
-        // Çå³ıËùÓĞµÄ´ÊÔªÊôĞÔ
+        // æ¸…é™¤æ‰€æœ‰çš„è¯å…ƒå±æ€§
         clearAttributes();
         Lexeme nextLexeme = _IKImplement.next();
         if (nextLexeme != null) {
-            // ½«Lexeme×ª³ÉAttributes
-            // ÉèÖÃ´ÊÔªÎÄ±¾
+            // å°†Lexemeè½¬æˆAttributes
+            // è®¾ç½®è¯å…ƒæ–‡æœ¬
             termAtt.append(nextLexeme.getLexemeText());
-            // ÉèÖÃ´ÊÔª³¤¶È
+            // è®¾ç½®è¯å…ƒé•¿åº¦
             termAtt.setLength(nextLexeme.getLength());
-            // ÉèÖÃ´ÊÔªÎ»ÒÆ
+            // è®¾ç½®è¯å…ƒä½ç§»
             offsetAtt.setOffset(nextLexeme.getBeginPosition(), nextLexeme.getEndPosition());
-            // ¼ÇÂ¼·Ö´ÊµÄ×îºóÎ»ÖÃ
+            // è®°å½•åˆ†è¯çš„æœ€åä½ç½®
             endPosition = nextLexeme.getEndPosition();
-            // ¼ÇÂ¼´ÊÔª·ÖÀà
+            // è®°å½•è¯å…ƒåˆ†ç±»
             typeAtt.setType(nextLexeme.getLexemeText());
-            // ·µ»átrue¸æÖª»¹ÓĞÏÂ¸ö´ÊÔª
+            // è¿”ä¼štrueå‘ŠçŸ¥è¿˜æœ‰ä¸‹ä¸ªè¯å…ƒ
             return true;
         }
-        // ·µ»áfalse¸æÖª´ÊÔªÊä³öÍê±Ï
+        // è¿”ä¼šfalseå‘ŠçŸ¥è¯å…ƒè¾“å‡ºå®Œæ¯•
         return false;
     }
 
