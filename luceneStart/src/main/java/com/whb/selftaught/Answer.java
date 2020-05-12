@@ -1,4 +1,4 @@
-    package com.whb;
+    package com.whb.selftaught;
 
     import java.util.ArrayList;
     import java.util.HashSet;

@@ -1,11 +1,16 @@
-package com.whb;
+/*
+package com.whb.search;
 
+*/
+/*
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
+*//*
+
 
 import java.io.IOException;
 
@@ -70,3 +75,4 @@ public class IKTokenizer6x extends Tokenizer {
     }
 
 }
+*/

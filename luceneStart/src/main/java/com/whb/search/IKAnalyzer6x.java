@@ -1,4 +1,5 @@
-package com.whb;
+/*
+package com.whb.search;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.Tokenizer;
@@ -30,3 +31,4 @@ public class IKAnalyzer6x  extends Analyzer {
         return new TokenStreamComponents(_IKTokenizer);
     }
 }
+*/
